@@ -19,7 +19,7 @@
 <body>
     <!-- ORDER BY -->
     <div class="container mt-5">
-        <div class=" px-2 mb-4 d-flex flex-row gap-5 flex-row align-items-center ms-auto">
+        <div class=" px-2 mb-4 d-flex flex-wrap gap-5 flex-row align-items-center ms-auto">
 
             <p class="fw-bold m-0 ms-auto">Order By:</p>
             <div class="dropdown">

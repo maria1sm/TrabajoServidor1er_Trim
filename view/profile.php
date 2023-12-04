@@ -20,8 +20,8 @@ if(!isset($user)){
 <body>
     <div class="container my-5" id="profile_container">
         <div class="d-flex flex-wrap gap-4 justify-content-around">
-            <div class="">
-                <div class="card h-100" style="width: 30rem;">
+            <div class="w-100" style="max-width: 30rem;">
+                <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">User Profile</h5>
                         <p class="card-text">Username: <?= $user->username; ?></p>
