@@ -38,6 +38,28 @@ function selectServiceById($pdo, $id){
         echo "No se ha podido completar la transaccion";
     }
 }
+
+//UPDATE Service
+function updateServiceById($pdo, $id, $newName, $newDescription, $newPrice) {
+    try {
+        $sql = "UPDATE services
+                SET ser_name = ?, ser_description = ?, price = ?
+                WHERE service_id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$newName, $newDescription, $newPrice, $id]);
+
+        // Check if any rows were affected by the update
+        if ($stmt->rowCount() > 0) {
+            // Return true if the update was successful
+            return true;
+        } else {
+            // Return false if the product with the specified ID was not found
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "No se ha podido completar el update";
+    }
+}
 /*function serviceImage($img)
 {
     $base64Image = base64_encode($img);

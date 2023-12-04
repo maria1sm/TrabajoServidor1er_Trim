@@ -84,6 +84,8 @@ function selectProductsByCategory($pdo, $categoryId){
     }
 }
 
+
+//OrderBy
 function orderByPriceAsc($array){
     usort($array, array('Product','compareByPriceAsc'));
     return $array;
@@ -101,11 +103,33 @@ function orderByNameDesc($array){
     return $array;
 }
 
-//usort($array, array('Product','compareByPriceAsc'));
-
 function productImage($img){
     $base64Image = base64_encode($img);
     return $base64Image;
 }
+
+//UPDATE Product
+function updateProductById($pdo, $id, $newName, $newDescription, $newPrice, $newStock, $newCategoryId) {
+    try {
+        $sql = "UPDATE products
+                SET pro_name = ?, pro_description = ?, price = ?, stock = ?, x_category_id = ?
+                WHERE product_id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$newName, $newDescription, $newPrice, $newStock, $newCategoryId, $id]);
+
+        // Check if any rows were affected by the update
+        if ($stmt->rowCount() > 0) {
+            // Return true if the update was successful
+            return true;
+        } else {
+            // Return false if the product with the specified ID was not found
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "No se ha podido completar el update";
+    }
+}
+
+
 
 ?>
