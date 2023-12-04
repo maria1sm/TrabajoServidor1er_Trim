@@ -19,7 +19,7 @@
 <body>
     <!-- ORDER BY -->
     <div class="container mt-5">
-        <div class=" px-2 mb-4 d-flex flex-row gap-5 flex-row align-items-center ms-auto">
+        <div class=" px-2 mb-4 d-flex flex-wrap gap-5 flex-row align-items-center ms-auto">
 
             
             <div class="dropdown">
@@ -32,28 +32,30 @@
                 <li><a class="dropdown-item" href="../controller/CategoryController.php?cat=3">Keys</a></li>
                 </ul>
             </div>
-            <p class="fw-bold m-0 ms-auto">Order By:</p>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Price
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="priceDropdown">
-                <li><a class="dropdown-item" href="?price=higher">Higher Price</a></li>
-                <li><a class="dropdown-item" href="?price=lower">Lower Price</a></li>
-                </ul>
-            </div>
+            <div class="d-flex flex-row ms-auto align-items-center gap-3">
+                <p class="fw-bold m-0 ms-auto">Order By:</p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Price
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="priceDropdown">
+                    <li><a class="dropdown-item" href="?price=higher">Higher Price</a></li>
+                    <li><a class="dropdown-item" href="?price=lower">Lower Price</a></li>
+                    </ul>
+                </div>
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="nameDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Name
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="nameDropdown">
-                <li><a class="dropdown-item" href="?name=az">A-Z</a></li>
-                <li><a class="dropdown-item" href="?name=za">Z-A</a></li>
-                </ul>
-            </div>
-            <div>
-                <a class="btn btn-secondary button" href="../controller/IndexController.php">Reset</a>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="nameDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Name
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="nameDropdown">
+                    <li><a class="dropdown-item" href="?name=az">A-Z</a></li>
+                    <li><a class="dropdown-item" href="?name=za">Z-A</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <a class="btn btn-secondary button" href="../controller/IndexController.php">Reset</a>
+                </div>
             </div>
         </div>
     </div>
