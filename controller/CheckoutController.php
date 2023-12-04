@@ -9,7 +9,7 @@ if (!isset($_SESSION["usuario"])){
 } else {
     echo "B";
     insertOrders($pdo);
-    //header("Location: ../view/carrito.php");
+    header("Location: ProfileController.php");
 }
 //$_SESSION["lastPage"] = $_SERVER['HTTP_REFERER'];
 /*if(!isset($_SESSION["usuario"])){

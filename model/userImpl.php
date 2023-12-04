@@ -10,8 +10,8 @@ function selectUserById($pdo, $userId){
         $stmt->execute([$userId]);
         $res = $stmt->fetch();
         if ($res) {
-            $user = new User($res["user_id"], $res["user_name"], $res["user_password"], $res["address"],
-            $res["phone"], $res["email"], $res["floor"], $res["x_rol_id"]);
+            $user = new User($res["user_id"], $res["username"], $res["password"], $res["address"],
+            $res["phone"], $res["email"], $res["country"], $res["x_rol_id"]);
 
             //PENDING
             //Set User Orders array 
@@ -26,13 +26,13 @@ function selectUserById($pdo, $userId){
 function insertUser($pdo, User $user){
     $sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt= $pdo->prepare($sql);
-    $stmt->execute([0, $user->username, $user->password, $user->address, $user->phone, $user->email, $user->floor, $user->role_id]);
+    $stmt->execute([0, $user->username, $user->password, $user->address, $user->phone, $user->email, $user->country, $user->role_id]);
     return $stmt;
 }
 function updatetUser($pdo, User $user){
-    $sql = "UPDATE users SET user_name = ?, user_password = ?, address = ?, phone = ?, email = ?, floor = ? WHERE user_id = $user->user_id;";
+    $sql = "UPDATE users SET username = ?, password = ?, address = ?, phone = ?, email = ?, country = ? WHERE user_id = $user->user_id;";
     $stmt= $pdo->prepare($sql);
-    $stmt->execute([$user->username, $user->password, $user->address, $user->phone, $user->email, $user->floor]);
+    $stmt->execute([$user->username, $user->password, $user->address, $user->phone, $user->email, $user->country]);
     return $user;
 }
 

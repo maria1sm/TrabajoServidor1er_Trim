@@ -13,44 +13,62 @@ include_once("../connection/Connection.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- My css -->
     <link href="../view/css/style.css" rel="stylesheet" type="text/css"/>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
-        defer></script>
-    <title>About Us</title>
+    
+    <!-- Icon -->
+    <link rel="shortcut icon" href="" type="image/xpng">
+    <title>VedruTech</title>
 </head>
 <body>
     <header>
         
     </header>
-    <div class="container" id="employees_container">
-        <?php foreach($employees as $emp): ?>
-            <div class="pCard">
-                <img src="data:image/jpeg;base64,<?=$emp->image; ?>" alt="image">
-                <p><?= $emp->emp_name;?></p>
-                <p><?= $emp->emp_description;?></p>
-                <p><?= $emp->job_title;?></p>
-                
-            </div>
-        <?php endforeach; ?>
+    <div class="container my-5" id="employees_container">
+        <div class="d-flex flex-wrap gap-4 justify-content-around">
+            <?php foreach($employees as $emp): ?>
+                <div class="card h-100" style="width: 18rem;">
+                    <div class="img-div">
+                        <img src="data:image/jpeg;base64,<?=$emp->image; ?>" class="card-img-top" alt="Employee Image">
+                    </div>
+                    
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title"><?= $emp->emp_name; ?></h5>
+                        <p class="card-text"><?= $emp->emp_description; ?></p>
+                        <p class="card-text"><?= $emp->job_title; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-    <form action="../model/enviarCorreo.php" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+    
+    <div class="container my-5 contact">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h3 class="mt-4 mb-4">Contact Us</h3>
+                <form action="../model/enviarCorreo.php" method="post">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="form-control" required></textarea>
+                    </div>
 
-        <button type="submit">Enviar</button>
-    </form>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

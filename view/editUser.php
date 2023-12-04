@@ -12,12 +12,8 @@ if(!isset($user)){
     <!-- My css -->
     <link href="../view/css/style.css" rel="stylesheet" type="text/css"/>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
-        defer></script>
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" type="image/xpng">
+    
+    <link rel="shortcut icon" href="" type="image/xpng">
     <title>Edit Profile</title>
 </head>
 <body>
@@ -26,7 +22,6 @@ if(!isset($user)){
         <form id="updateForm" class="mb-5 mx-auto" action="../controller/EditUserController.php" method="post">
             <fieldset class="form-row reset p-4 align-items-center border border-0 border-round rounded"
                 id="register-card">
-
                 <div class="form-group row g-3 mt-1 mx-auto">
                     <label for="username" class="col-md-2 col-form-label">Username:</label>
                     <div class="col-sm-10">
@@ -61,9 +56,9 @@ if(!isset($user)){
                 </div>
 
                 <div class="form-group row g-3 mt-1 mx-auto">
-                    <label for="floor" class="col-md-2 col-form-label">Floor:</label>
+                    <label for="country" class="col-md-2 col-form-label">Country:</label>
                     <div class="col-sm-10">
-                        <input type="text" id="floor" class="form-control text-info" name="floor" required />
+                        <input type="text" id="country" class="form-control text-info" name="country" required />
                     </div>
                 </div>
 
@@ -75,7 +70,7 @@ if(!isset($user)){
                 </div>
 
                 <div class="row g-3 mt-2  d-grid col-6 mx-auto">
-                    <input  class="btn btn-primary btn-lg nutton" type="submit" value="Edit User" name="submit"/>
+                    <input  class="btn btn-primary btn-lg button" type="submit" value="Edit User" name="submit"/>
                 </div>
 
             </fieldset>

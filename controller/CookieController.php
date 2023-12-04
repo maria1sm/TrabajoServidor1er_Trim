@@ -19,7 +19,7 @@ if(!isset($_COOKIE["my_cookie"]) && isset($_GET["type"]) && isset($_GET["id"])) 
     array_push($array, $assocArray);
     $cookie_value = base64_encode(serialize($array));
     setcookie($cookie_name, $cookie_value, time() + (86400 * 2), "/");
-    header("Location: ../controller/IndexController.php");
+    header("Location: ".$_SESSION["lastVisited"]);
     echo "A";
 } else if (isset($_GET["type"]) && isset($_GET["id"])){
     $itemId = $_GET["id"];
@@ -38,7 +38,7 @@ if(!isset($_COOKIE["my_cookie"]) && isset($_GET["type"]) && isset($_GET["id"])) 
                 $items[$cont] = $item;
                 $cookieItems = base64_encode(serialize($items));
                 setcookie("my_cookie", $cookieItems, time() + (86400 * 2), "/");
-                header("Location: ../controller/IndexController.php");
+                header("Location: ".$_SESSION["lastVisited"]);
                 return true; // Found the associative array
             }
             $cont++;
@@ -58,13 +58,13 @@ if(!isset($_COOKIE["my_cookie"]) && isset($_GET["type"]) && isset($_GET["id"])) 
         array_push($items, $assocArray);
         $cookieItems = base64_encode(serialize($items));
         setcookie("my_cookie", $cookieItems, time() + (86400 * 2), "/");
-        header("Location: ../controller/IndexController.php");
+        header("Location: ".$_SESSION["lastVisited"]);
     }
 
 }
 
 
 //header("Location: ".$_SESSION["lastVisited"]);
-header("Location: ../controller/IndexController.php");
+header("Location: ".$_SESSION["lastVisited"]);
 
 ?>

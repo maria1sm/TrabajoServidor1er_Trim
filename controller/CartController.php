@@ -23,7 +23,7 @@ if(isset($_GET["id"]) && isset($_GET["type"])){
                 //$items[$cont] = $item;
                 $cookieItems = base64_encode(serialize($items));
                 setcookie("my_cookie", $cookieItems, time() + (86400 * 2), "/");
-                header("Location: ../controller/IndexController.php");
+                header("Location: ".$_SESSION["lastVisited"]);
                 // Found the associative array
             }
             $cont++;
@@ -34,7 +34,7 @@ if(isset($_GET["id"]) && isset($_GET["type"])){
 
 
 $pdo = null;
-header("Location: ../controller/IndexController.php");
+header("Location: ".$_SESSION["lastVisited"]);
 //include_once("../view/carrito.php");
 
 

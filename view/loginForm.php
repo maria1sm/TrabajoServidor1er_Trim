@@ -37,16 +37,15 @@ if(isset($_SESSION["usuario"])){
     <!-- <script type="text/javascript" src="js/app.js" defer></script> -->
 
     <!-- Icono al lado del titulo -->
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" type="image/xpng">
+    <link rel="shortcut icon" href="" type="image/xpng">
 
     <!-- Titulo -->
-    <title>Twitter Clon</title>
+    <title>Login</title>
 
 </head>
 
 <body>
     <div class="container d-flex flex-column justify-content-center">
-        <img class="align-self-center mt-5" src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" height="45px" width="auto">
         <section class="align-items-center">
             <div class="container pb-4 pt-5">
                 <ul class="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
@@ -114,7 +113,7 @@ if(isset($_SESSION["usuario"])){
                                     </div>
 
                                     <div class="row g-3 mt-2 mx-auto d-grid col-6">
-                                        <input id="sendBttn2" class="btn btn-primary btn-lg" type="submit" value="Send" name="submit"/>
+                                        <input id="sendBttn2" class="btn btn-primary btn-lg button" type="submit" value="Send" name="submit"/>
                                     </div>
                                 </fieldset>
                             </form>
@@ -168,14 +167,14 @@ if(isset($_SESSION["usuario"])){
                                     </div>
 
                                     <div class="form-group row g-3 mt-1 mx-auto">
-                                        <label for="floor" class="col-md-2 col-form-label">Floor:</label>
+                                        <label for="country" class="col-md-2 col-form-label">Country:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" id="floor" class="form-control text-info" name="floor" required />
+                                            <input type="text" id="country" class="form-control text-info" name="country" required />
                                         </div>
                                     </div>
 
                                     <div class="row g-3 mt-2 d-grid col-6 mx-auto">
-                                        <input id="sendBttn" class="btn btn-primary btn-lg" type="submit" value="Send" name="submit"/>
+                                        <input id="sendBttn" class="btn btn-primary btn-lg button" type="submit" value="Send" name="submit"/>
                                     </div>
                                 </fieldset>
                             </form>

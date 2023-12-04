@@ -10,7 +10,7 @@ if (isset($_SESSION["usuario"])){
         $pass = isset($_POST["password"]) ? trim($_POST["password"]) : false;
         $address = isset($_POST["address"]) ?trim($_POST["address"]) : false;
         $phone = isset($_POST["phone"]) ? trim($_POST["phone"]) : false;
-        $floor = isset($_POST["floor"]) ? trim($_POST["floor"]) : false;
+        $country = isset($_POST["country"]) ? trim($_POST["country"]) : false;
         echo $mail;
 
         $arrayErrores = array();
@@ -23,7 +23,7 @@ if (isset($_SESSION["usuario"])){
         }
 
         /*Prevent SQL Injection*/
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE user_name= ?");
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username= ?");
         $stmt->execute([$username]);
         $rowCount = $stmt->rowCount();
 
@@ -64,7 +64,7 @@ if (isset($_SESSION["usuario"])){
  
             
             //Insert user on userImpl
-            $userEdited = new User($_SESSION["usuario"]->user_id, $username, $passSegura, $address, $phone, $mail, $floor, $_SESSION["usuario"]->role_id);
+            $userEdited = new User($_SESSION["usuario"]->user_id, $username, $passSegura, $address, $phone, $mail, $country, $_SESSION["usuario"]->role_id);
             $userEdited = updatetUser($pdo, $userEdited);
             $_SESSION["usuario"] = $userEdited;
 
@@ -80,6 +80,7 @@ if (isset($_SESSION["usuario"])){
             //var_dump($_SESSION["errores"]);
         }
     } else {
+        include("../view/navbar.php");
         include("../view/editUser.php");
     }
 } else {
