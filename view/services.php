@@ -65,7 +65,11 @@
                             <p class="card-text fw-bold"><?= $ser->price."€" ?></p>
                         </div>
                         <div class="d-flex justify-content-center mb-3">
-                            <a class="button btn btn-primary btn-block w-75" href="../controller/CookieController.php?id=<?= $ser->id?>&type=<?= $ser->type?>">Buy Now</a>
+                        <?php if($admin) : ?>
+                                <a class="button btn btn-secondary btn-block w-50" href="../controller/ServiceCrudController.php?id=<?= $ser->id?>">Edit</a>
+                            <?php else: ?>
+                                <a class="button btn btn-primary btn-block w-75" href="../controller/CookieController.php?id=<?= $ser->id?>&type=<?= $ser->type?>">Buy Now</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

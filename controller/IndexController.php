@@ -26,6 +26,16 @@
     
     $_SESSION["lastVisited"] = $_SERVER['REQUEST_URI'];
 
+    //AdminCRUD
+    $admin = false;
+    if(isset($_SESSION["usuario"])){
+        if($_SESSION["usuario"]->role_id == 1) {
+            $admin = true;
+        }
+    }
+        
+            
+ 
 
     
     include_once("../view/navbar.php");

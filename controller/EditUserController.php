@@ -1,6 +1,6 @@
 <?php 
 require_once("../connection/Connection.php");
-require_once("../model/userImpl.php");
+require_once("../controller/CarritoDisplayController.php");
 
 session_start();
 if (isset($_SESSION["usuario"])){
@@ -82,6 +82,7 @@ if (isset($_SESSION["usuario"])){
     } else {
         include("../view/navbar.php");
         include("../view/editUser.php");
+        include("../view/carrito.php");
     }
 } else {
     header("Location: ../controller/LoginFormController.php");
