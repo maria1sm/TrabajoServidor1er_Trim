@@ -1,5 +1,5 @@
 :root {
-    --tw-blue: #1DA1F2;
+    --tw-blue: #0d6efd;
     --tw-blue-op: rgb(29, 161, 242, 0.1);
     --btn-grey-shadow: rgb(255, 255, 255);
     --white: white;
@@ -23,6 +23,14 @@ img {
 
 .img-div {
     height: 20rem !important;
+}
+
+#employees_container .img-div {
+    height: 24rem !important;
+}
+
+#employees_container .card {
+    height: 36rem !important;
 }
 
 .tw-name {
@@ -49,11 +57,11 @@ img {
 }
 
 .button {
-    border-radius: 20px !important;
+    border-radius: 500px !important;
 }
 
 button {
-    border-radius: 20px !important;
+    border-radius: 500px !important;
 }
 
 /* hide scrollbar but allow scrolling */
@@ -68,6 +76,10 @@ button {
 .overflow-auto::-webkit-scrollbar {
     display: none;
     /* for Chrome, Safari, and Opera */
+}
+
+#service_container .img-div {
+    height: 14rem !important;
 }
 
 .delete-icon {

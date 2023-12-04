@@ -21,17 +21,6 @@
     <div class="container mt-5">
         <div class=" px-2 mb-4 d-flex flex-row gap-5 flex-row align-items-center ms-auto">
 
-            
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                Category
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="priceDropdown">
-                <li><a class="dropdown-item" href="../controller/CategoryController.php?cat=1">ComputerParts</a></li>
-                <li><a class="dropdown-item" href="../controller/CategoryController.php?cat=2">Peripherals</a></li>
-                <li><a class="dropdown-item" href="../controller/CategoryController.php?cat=3">Keys</a></li>
-                </ul>
-            </div>
             <p class="fw-bold m-0 ms-auto">Order By:</p>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,6 +32,7 @@
                 </ul>
             </div>
 
+
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="nameDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 Name
@@ -53,7 +43,7 @@
                 </ul>
             </div>
             <div>
-                <a class="btn btn-secondary button" href="../controller/IndexController.php">Reset</a>
+                <a class="btn btn-secondary button" href="?">Reset</a>
             </div>
         </div>
     </div>
@@ -62,22 +52,20 @@
 
     <!--content-->
 
-    <div class="container mb-5" id="product_container">
+    <div class="container mb-5" id="service_container">
         <div class="d-flex flex-wrap gap-4 justify-content-around">
-            <?php foreach ($productsCat as $pro): ?>
-                <?php $catName = getCategoryNameByCategoryId($pdo, $pro->category_id) ?>
+            <?php foreach ($services as $ser): ?>
                 <div class="">
                     <div class="card h-100" style="width: 18rem;">
-                        <div class="img-div"><img src="data:image/jpeg;base64,<?= $pro->image; ?>" class="card-img-top" alt="image"></div>
+                        <div class="img-div"><img src="data:image/jpeg;base64,<?= $ser->image; ?>" class="card-img-top" alt="image"></div>
                         
                         <div class="card-body">
-                            <h5 class="card-title"><?= $pro->name; ?></h5>
-                            <p class="card-text"><?= $pro->description; ?></p>
-                            <p class="card-text fw-bold"><?= $pro->price."€" ?></p>
-                            <p class="card-text">Category: <a href="../controller/CategoryController.php?cat=<?=$pro->category_id?>"><?= $catName; ?></a></p>
+                            <h5 class="card-title"><?= $ser->name; ?></h5>
+                            <p class="card-text"><?= $ser->description; ?></p>
+                            <p class="card-text fw-bold"><?= $ser->price."€" ?></p>
                         </div>
                         <div class="d-flex justify-content-center mb-3">
-                            <a class="button btn btn-primary btn-block w-75" href="../controller/CookieController.php?id=<?= $pro->id?>&type=<?= $pro->type?>">Buy Now</a>
+                            <a class="button btn btn-primary btn-block w-75" href="../controller/CookieController.php?id=<?= $ser->id?>&type=<?= $ser->type?>">Buy Now</a>
                         </div>
                     </div>
                 </div>

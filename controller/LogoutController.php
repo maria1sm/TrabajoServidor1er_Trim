@@ -5,5 +5,5 @@
         session_destroy();
     }
     $pdo=null;
-    header("Location: LoginFormController.php");
+    header("Location: IndexController.php");
 ?>

@@ -7,20 +7,20 @@ class User {
     protected $address;
     protected $phone;
     protected $email;
-    protected $floor;
+    protected $country;
     protected $role_id;
     
     //Order array (cart)
     protected $userOrders;
 
-    public function __construct($user_id, $username, $password, $address, $phone, $email, $floor, $role_id ){
+    public function __construct($user_id, $username, $password, $address, $phone, $email, $country, $role_id ){
         $this->user_id = $user_id;
         $this->username = $username;
         $this->password = $password;
         $this->address = $address;
         $this->phone = $phone;
         $this->email = $email;
-        $this->floor = $floor;
+        $this->country = $country;
         $this->role_id  = $role_id ;
         $this->userOrders = [];
     }
@@ -37,7 +37,7 @@ class User {
     }
 
     public function __toString(){
-        return $this->user_id." ".$this->username." ".$this->password." ".$this->address." ".$this->phone." ".$this->email." ".$this->floor." ".$this->role_id;
+        return $this->user_id." ".$this->username." ".$this->password." ".$this->address." ".$this->phone." ".$this->email." ".$this->country." ".$this->role_id;
     }
 }
 ?>

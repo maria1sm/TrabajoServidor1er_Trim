@@ -19,6 +19,22 @@ function selectProductById($pdo, $id){
         echo "No se ha podido completar la transaccion";
     }
 }
+function getCategoryNameByCategoryId($pdo, $categoryId){
+    try {
+        $sql = "SELECT * FROM categories WHERE category_id = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$categoryId]);
+        $res = $stmt->fetch();
+
+        if ($res) {
+            return $res["name"]; //return category name
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo "No se ha podido completar la transacción";
+    }
+}
 function selectAllProducts($pdo){
     try {
         $sql = "SELECT * FROM products";

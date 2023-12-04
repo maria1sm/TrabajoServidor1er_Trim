@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- My css -->
+    <link href="../view/css/style.css" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap -->
+    
+    <!-- Icon -->
+    <link rel="shortcut icon" href="" type="image/xpng">
+    <title>VedruTech</title>
 </head>
 <body>
     <?php /*
@@ -93,7 +99,7 @@
                     </div>
                 </div>
                 <div class="modal-footer mb-5 mx-auto mt-3">
-                    <button type="button" class="btn btn-primary" href="../controller/CheckoutController.php">Checkout</button>
+                    <a type="button" class="btn btn-primary button" href="CheckoutController.php">Checkout</a>
                 </div>
             </div>
         </div>

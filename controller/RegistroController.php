@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     $pass = isset($_POST["password"]) ? trim($_POST["password"]) : false;
     $address = isset($_POST["address"]) ? trim($_POST["address"]) : false;
     $phone = isset($_POST["phone"]) ? trim($_POST["phone"]) : false;
-    $floor = isset($_POST["floor"]) ? trim($_POST["floor"]) : false;
+    $country = isset($_POST["country"]) ? trim($_POST["country"]) : false;
 
     //var_dump($_POST);
 
@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
 
     
     /*Prevent SQL Injection*/
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE user_name= ?");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username= ?");
     $stmt->execute([$username]);
     $rowCount = $stmt->rowCount();
     //$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -69,14 +69,14 @@ if (isset($_POST["submit"])) {
         //password_verify($pass, $passSegura);
         
         //Insert user on userImpl
-        echo $username." ".$passSegura." ".$address." ".$phone." ".$mail." ".$floor;
-        $userRegister = new User(0, $username, $passSegura, $address, $phone, $mail, $floor, 2);
+        echo $username." ".$passSegura." ".$address." ".$phone." ".$mail." ".$country;
+        $userRegister = new User(0, $username, $passSegura, $address, $phone, $mail, $country, 2);
         var_dump($userRegister);
         echo $userRegister->username;
         $registered = insertUser($pdo, $userRegister);
         /*$sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
         $stmt= $pdo->prepare($sql);
-        $stmt->execute([0, $username, $passSegura, $address, $phone, $mail, $floor,2]);*/
+        $stmt->execute([0, $username, $passSegura, $address, $phone, $mail, $country,2]);*/
 
         if ($stmt) {
             $_SESSION["completado"] = "Registro completado";

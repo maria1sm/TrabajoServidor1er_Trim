@@ -33,7 +33,7 @@
         //si el email no es válido significa en principio que el formato no es de mail,
         //por lo que chequea con username (se pueden introducir los dos en el mismo campo del form)
 
-        $sql = "SELECT * FROM users WHERE user_name = ('$mail')";
+        $sql = "SELECT * FROM users WHERE username = ('$mail')";
         //prepare te permite hacer fetch_assoc
         $res = $pdo->prepare($sql);
         
@@ -41,7 +41,7 @@
         if ($res->execute() && $res->rowCount() === 1) {
             $usuario = $res->fetch();
             var_dump($usuario);
-            if (password_verify($pass, $usuario["user_password"])) {
+            if (password_verify($pass, $usuario["password"])) {
                 $_SESSION["usuario"] = selectUserById($pdo, $usuario["user_id"]);
                 $pdo = null;
                 header("Location: IndexController.php");

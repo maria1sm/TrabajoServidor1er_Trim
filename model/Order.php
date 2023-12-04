@@ -7,10 +7,13 @@ class Order {
 
     //Ordered items id array
     protected $items;
+
     public function __construct($order_id, $user_id, $order_date){
         $this->order_id = $order_id;
         $this->user_id = $user_id;
         $this->order_date = $order_date;
+        
+        //assoc array: item(obj), type, quantity
         $this->items = [];
     }
 

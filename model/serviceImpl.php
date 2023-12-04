@@ -1,9 +1,8 @@
 <?php
 require_once("../model/Service.php");
-require_once dirname(__DIR__) . "\model\Service.php";
+//require_once dirname(__DIR__) . "\model\Service.php";
 
-function selectAllServices($pdo)
-{
+function selectAllServices($pdo){
     try {
         //Hacemos la query
         $statement = $pdo->query("SELECT * FROM services");
@@ -29,7 +28,7 @@ function selectServiceById($pdo, $id){
         $stmt->execute([$id]);
         $res = $stmt->fetch();
         if ($res) {
-            $image = $s["image"];
+            $image = $res["image"];
             $base64Image = base64_encode($image);
             $service = new Service($res["service_id"], $res["ser_name"], $res["ser_description"], $res["price"],
             $base64Image);

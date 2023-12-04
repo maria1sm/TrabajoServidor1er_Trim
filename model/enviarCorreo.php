@@ -39,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Envía el correo
         $mail->send();
-        echo '<script>window.open("../index.php", "_blank");</script>';
+        header("Location: ../controller/AboutUsController.php");
     } catch (Exception $e) {
-        echo "El mensaje no pudo ser enviado. Error del correo: {$mail->ErrorInfo}";
+        header("Location: ../errors/Error.php");
     }
 } else {
-    echo 'Acceso no permitido';
+    header("Location: ../errors/Error.php");
 }
 ?>
